@@ -9,6 +9,9 @@ Package.describe({
 Npm.depends({
   'apn' : '1.6.2', // '1.7.4', // working: 1.6.2
   'node-gcm' : '0.9.6', // '0.12.0' // working: 0.9.6
+  'connect': '3.4.1',
+  'fibers': '1.0.13',
+  'body-parser': '1.15.1'
 });
 
 Cordova.depends({
@@ -50,9 +53,13 @@ Package.onUse(function(api) {
     'underscore',
     'ejson',
     'random',   // The push it is created with Random.id()
+    'webapp'
   ], ['client', 'server']);
 
   api.use('mongo', 'server');
+
+  // public for browser
+  api.addFiles('browser/service-worker.js', 'web.browser', {isAsset: true});
 
   // API
   api.addFiles('lib/client/cordova.js', 'web.cordova');

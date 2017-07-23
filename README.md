@@ -70,6 +70,9 @@ Push.Configure({
     alert: true,
     badge: true,
     sound: true
+  },
+  "browser": {
+    //manifest.json contents goes here
   }
 });
 ```
